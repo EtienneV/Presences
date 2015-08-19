@@ -1,0 +1,14 @@
+<ion-view view-title="{{data.activite.name}}">
+    <ion-content class="padding">
+        ID : {{data.activite.id}}
+
+        <ion-list>
+            <ion-item class="item-checkbox" ng-repeat="jeune in data.jeunes" type="item-text-wrap">
+                <h2>{{jeune.name}}</h2>
+                <label class="checkbox">
+                    <input type="checkbox">
+                </label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
