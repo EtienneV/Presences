@@ -1,14 +1,17 @@
 <ion-view view-title="{{data.activite.name}}">
     <ion-content class="padding">
-        ID : {{data.activite.id}}
 
-        <ion-list>
-            <ion-item class="item-checkbox" ng-repeat="jeune in data.jeunes" type="item-text-wrap">
-                <h2>{{jeune.name}}</h2>
-                <label class="checkbox ink">
-                    <input type="checkbox">
+        <ul class="list">
+            <li class="item item-checkbox" ng-repeat="jeune in data.jeunes">
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="data.jeunes[jeune.id].checked" ng-checked="data.getpresence(jeune.id)" ng-change="data.changepresence(jeune.id)">
                 </label>
-            </ion-item>
-        </ion-list>
+                {{jeune.name}}
+            </li>
+        </ul>
+
+        <div class="item">
+            <pre ng-bind="data.jeunes | json"></pre>
+        </div>
     </ion-content>
 </ion-view>
