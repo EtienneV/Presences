@@ -4,10 +4,14 @@
         <ul class="list">
             <li class="item item-checkbox" ng-repeat="jeune in data.jeunes">
                 <label class="checkbox">
-                    <input type="checkbox" ng-model="data.jeunes[jeune.id].checked" ng-checked="data.getpresence(jeune.id)" ng-change="data.changepresence(jeune.id)">
+                    <input type="checkbox" ng-model="data.jeunes[jeune.id].checked" ng-checked="data.jeunes[jeune.id].checked" ng-change="data.changepresence(jeune.id)">
                 </label>
                 {{jeune.name}}
             </li>
         </ul>
+
+        <div class="item">
+            <pre ng-bind="data.activite | json"></pre>
+        </div>
     </ion-content>
 </ion-view>

@@ -1,8 +1,12 @@
 <ion-view view-title="Jeunes">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="jeune in data.jeunes" type="item-text-wrap">
+            <ion-item class="item-remove-animate" ng-repeat="jeune in data.jeunes" type="item-text-wrap">
                 <h2>{{jeune.name}}</h2>
+
+                <ion-option-button class="button-assertive" ng-click="data.remove($index)">
+                    Supprimer
+                </ion-option-button>
             </ion-item>
         </ion-list>
 

@@ -22,9 +22,9 @@ angular.module('starter.services', [])
         id: 4,
         name: 'WE neige',
         presences: {}
-      }];
+      }];*/
 
-      var activites = $localstorage.setObject("activites", activites); // On recupère l'objet des activités*/
+      //var activites = $localstorage.setObject("activites", []); // On recupère l'objet des activités
 
       var activitesVide = function() {
         var activites = $localstorage.getObject("activites");
@@ -42,10 +42,10 @@ angular.module('starter.services', [])
         all: function() {
           return $localstorage.getObject("activites");
         },
-        remove: function(activite) {
+        remove: function(activiteId) {
           var activites = $localstorage.getObject("activites");
 
-          activites.splice(activites.indexOf(activite), 1);
+          activites.splice(activiteId, 1);
 
           $localstorage.setObject("activites", activites);
         },
@@ -102,7 +102,7 @@ angular.module('starter.services', [])
     name: 'Juliette'
   }];*/
 
-      //var jeunes = $localstorage.setObject("jeunes", {});
+      //var jeunes = $localstorage.setObject("jeunes", []);
 
       var jeunesVide = function() {
         var jeunes = $localstorage.getObject("jeunes");
@@ -114,37 +114,37 @@ angular.module('starter.services', [])
         return true;
       };
 
-      if(jeunesVide()) var jeunes = $localstorage.setObject("jeunes", []);
+      if(jeunesVide())
+      {
+        var jeunes = $localstorage.setObject("jeunes", []);
+        $localstorage.setObject("indexJeunes", 0);
+      }
 
       return {
         all: function() {
           return $localstorage.getObject("jeunes");
         },
+        remove: function(jeuneId) {
+          var jeunes = $localstorage.getObject("jeunes");
+
+          jeunes.splice(jeuneId, 1);
+
+          $localstorage.setObject("jeunes", jeunes);
+        },
         newJeune: function (nom) {
           var jeunes = $localstorage.getObject("jeunes");
 
-          var count = 0;
-
-          // Comptage du nombre d'éléments dans le tableau
-          for(var prop in jeunes) {
-            if(jeunes.hasOwnProperty(prop))
-              count++;
-          }
+          var indexJeune = $localstorage.getObject("indexJeunes") + 1;
 
           jeunes.push({
-            id: count,
-            name: nom,
+            id: indexJeune,
+            name: nom
           });
 
           $localstorage.setObject("jeunes", jeunes); // on restocke l'objet
+          $localstorage.setObject("indexJeunes", indexJeune);
         }
       };
-
-  return {
-    all: function() {
-      return jeunes;
-    }
-  };
 })
 
     .factory('Presences', function($localstorage, Activites) {

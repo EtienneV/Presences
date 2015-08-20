@@ -45,8 +45,8 @@ angular.module('starter.controllers', [])
             });
         };
 
-        $scope.remove = function(activite) {
-            Activites.remove(activite);
+        $scope.data.remove = function(activiteId) {
+            Activites.remove(activiteId);
             $scope.data.activites = Activites.all();
         };
 
@@ -84,6 +84,11 @@ angular.module('starter.controllers', [])
             });
         };
 
+        $scope.data.remove = function(jeuneId) {
+            Jeunes.remove(jeuneId);
+            $scope.data.jeunes = Jeunes.all();
+        };
+
         ionicMaterialInk.displayEffect();
 })
 
@@ -107,8 +112,6 @@ angular.module('starter.controllers', [])
         };
 
         $scope.data.changepresence = function (jeune) {
-            //Activites.changepresence(activite, jeune);
-            //$scope.jeunes[jeune].checked = Activites.getpresence(activite, jeune);
 
             if(Presences.getpresence($stateParams.activiteId, jeune) == true)
             {
