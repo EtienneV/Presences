@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('ActivitesCtrl', function($scope, Activites) {
+.controller('ActivitesCtrl', function($scope, Activites, ionicMaterialInk) {
       $scope.data = {};
 
       // With the new view caching in Ionic, Controllers are only called
@@ -10,6 +10,8 @@ angular.module('starter.controllers', [])
       //
       //$scope.$on('$ionicView.enter', function(e) {
       //});
+
+        ionicMaterialInk.displayEffect();
 
       $scope.data.activites = Activites.all();
       $scope.remove = function(activite) {
@@ -23,8 +25,10 @@ angular.module('starter.controllers', [])
       $scope.data.jeunes = Jeunes.all();
 })
 
-.controller('ActiviteDetailCtrl', function($scope, $stateParams, Activites, Jeunes) {
+.controller('ActiviteDetailCtrl', function($scope, $stateParams, Activites, Jeunes, ionicMaterialInk) {
       $scope.data = {};
+
+        ionicMaterialInk.displayEffect();
 
       $scope.data.jeunes = Jeunes.all();
 
