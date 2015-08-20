@@ -22,10 +22,21 @@ angular.module('starter.services', [])
         id: 4,
         name: 'WE neige',
         presences: {}
-      }];*/
+      }];
 
+      var activites = $localstorage.setObject("activites", activites); // On recupère l'objet des activités*/
 
-      //var activites = $localstorage.getObject("activites"); // On recupère l'objet des activités
+      var activitesVide = function() {
+        var activites = $localstorage.getObject("activites");
+
+        for (var key in activites) {
+          if (hasOwnProperty.call(activites, key)) return false;
+        }
+
+        return true;
+      };
+
+      if(activitesVide()) var activites = $localstorage.setObject("activites", []);
 
       return {
         all: function() {
@@ -35,6 +46,8 @@ angular.module('starter.services', [])
           var activites = $localstorage.getObject("activites");
 
           activites.splice(activites.indexOf(activite), 1);
+
+          $localstorage.setObject("activites", activites);
         },
         getActivite: function(activiteId) {
           var activites = $localstorage.getObject("activites");
@@ -54,7 +67,7 @@ angular.module('starter.services', [])
           // Comptage du nombre d'éléments dans le tableau
           for(var prop in activites) {
             if(activites.hasOwnProperty(prop))
-              ++count;
+              count++;
           }
 
           activites.push({
@@ -62,15 +75,17 @@ angular.module('starter.services', [])
             name: nom,
             presences: {}
           });
+
+          $localstorage.setObject("activites", activites); // on restocke l'objet
         }
       };
     })
 
-.factory('Jeunes', function() {
+.factory('Jeunes', function($localstorage) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var jeunes = [{
+  /*var jeunes = [{
     id: 0,
     name: 'Thibaud'
   }, {
@@ -85,7 +100,45 @@ angular.module('starter.services', [])
   }, {
     id: 4,
     name: 'Juliette'
-  }];
+  }];*/
+
+      //var jeunes = $localstorage.setObject("jeunes", {});
+
+      var jeunesVide = function() {
+        var jeunes = $localstorage.getObject("jeunes");
+
+        for (var key in jeunes) {
+          if (hasOwnProperty.call(jeunes, key)) return false;
+        }
+
+        return true;
+      };
+
+      if(jeunesVide()) var jeunes = $localstorage.setObject("jeunes", []);
+
+      return {
+        all: function() {
+          return $localstorage.getObject("jeunes");
+        },
+        newJeune: function (nom) {
+          var jeunes = $localstorage.getObject("jeunes");
+
+          var count = 0;
+
+          // Comptage du nombre d'éléments dans le tableau
+          for(var prop in jeunes) {
+            if(jeunes.hasOwnProperty(prop))
+              count++;
+          }
+
+          jeunes.push({
+            id: count,
+            name: nom,
+          });
+
+          $localstorage.setObject("jeunes", jeunes); // on restocke l'objet
+        }
+      };
 
   return {
     all: function() {

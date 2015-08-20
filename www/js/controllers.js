@@ -15,7 +15,11 @@ angular.module('starter.controllers', [])
 
         $scope.data.activites = Activites.all();
 
-        $scope.data.addActivite = function () {
+        $scope.data.addActivite = function (nom) {
+
+        };
+
+        $scope.data.addActiviteModal = function () {
             $scope.data.nomNewActivite = "";
 
             $ionicPopup.show({
@@ -33,6 +37,7 @@ angular.module('starter.controllers', [])
                                 e.preventDefault();
                             } else {
                                 Activites.newActivite($scope.data.nomNewActivite);
+                                $scope.data.activites = Activites.all();
                             }
                         }
                     }
@@ -42,21 +47,44 @@ angular.module('starter.controllers', [])
 
         $scope.remove = function(activite) {
             Activites.remove(activite);
+            $scope.data.activites = Activites.all();
         };
 
 
     })
 
-.controller('JeunesCtrl', function($scope, Jeunes, $localstorage) {
-      $scope.data = {};
+.controller('JeunesCtrl', function($scope, Jeunes, $localstorage, ionicMaterialInk, $ionicPopup) {
+        $scope.data = {};
 
-      $scope.data.jeunes = Jeunes.all();
+        $scope.data.jeunes = Jeunes.all();
 
-        $scope.data.test = $localstorage.get('testval', 'init');
+        $scope.data.addJeuneModal = function () {
+            $scope.data.nomNewJeune = "";
 
-        $scope.data.rafraichir = function () {
-            $localstorage.set('testval', $scope.data.test);
+            $ionicPopup.show({
+                template: '<input type="text" ng-model="data.nomNewJeune">',
+                title: 'Nouveau jeune',
+                scope: $scope,
+                buttons: [
+                    {text: 'Annuler'},
+                    {
+                        text: '<b>Confirmer</b>',
+                        type: 'button-positive',
+                        onTap: function (e) {
+                            if ($scope.data.nomNewJeune === '') {
+                                //don't allow the user to close unless he enters anumber
+                                e.preventDefault();
+                            } else {
+                                Jeunes.newJeune($scope.data.nomNewJeune);
+                                $scope.data.jeunes = Jeunes.all();
+                            }
+                        }
+                    }
+                ]
+            });
         };
+
+        ionicMaterialInk.displayEffect();
 })
 
 .controller('ActiviteDetailCtrl', function($scope, $stateParams, Activites, Jeunes, ionicMaterialInk, Presences) {
