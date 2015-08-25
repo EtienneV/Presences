@@ -101,7 +101,7 @@ angular.module('starter.controllers', [])
 
         for(var i = 0 ; i < $scope.data.jeunes.length ; i++)
         {
-            $scope.data.jeunes[i].checked = Presences.getpresence($stateParams.activiteId, i);
+            $scope.data.jeunes[i].checked = Presences.getpresence($stateParams.activiteId, $scope.data.jeunes[i].id);
         }
 
         $scope.data.activite = Activites.getActivite($stateParams.activiteId); // On récupère l'activité
