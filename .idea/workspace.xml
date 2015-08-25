@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cb220ab-6061-4b60-88cb-fd8fed0e449d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/activite-detail.html" afterPath="$PROJECT_DIR$/www/templates/activite-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/controllers.js" afterPath="$PROJECT_DIR$/www/js/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/services.js" afterPath="$PROJECT_DIR$/www/js/services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-activites.html" afterPath="$PROJECT_DIR$/www/templates/tab-activites.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tab-jeunes.html" afterPath="$PROJECT_DIR$/www/templates/tab-jeunes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/tabs.html" afterPath="$PROJECT_DIR$/www/templates/tabs.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Presences.iws" />
@@ -62,10 +56,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="activite-detail.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="activite-detail.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/templates/activite-detail.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.76445395">
+                <state vertical-scroll-proportion="-27.461538">
                   <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
                   <folding />
                 </state>
@@ -82,11 +76,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="tab-jeunes.html" pinned="false" current-in-tab="false">
+          <file leaf-file-name="tab-jeunes.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/templates/tab-jeunes.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-12.423077">
-                  <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.74625266">
+                  <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
@@ -139,8 +133,8 @@
         <option value="$PROJECT_DIR$/www/js/services.js" />
         <option value="$PROJECT_DIR$/www/templates/tabs.html" />
         <option value="$PROJECT_DIR$/www/js/controllers.js" />
-        <option value="$PROJECT_DIR$/www/templates/tab-jeunes.html" />
         <option value="$PROJECT_DIR$/www/templates/activite-detail.html" />
+        <option value="$PROJECT_DIR$/www/templates/tab-jeunes.html" />
       </list>
     </option>
   </component>
@@ -293,7 +287,13 @@
       <option name="project" value="LOCAL" />
       <updated>1440489312779</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Distinction chefs / jeunes">
+      <created>1440495671297</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1440495671297</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -359,7 +359,8 @@
     <MESSAGE value="Ajout d'items (activites et jeunes)" />
     <MESSAGE value="Suppression ?" />
     <MESSAGE value="Résolution problèmes de suppression / checkboxes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Résolution problèmes de suppression / checkboxes" />
+    <MESSAGE value="Distinction chefs / jeunes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Distinction chefs / jeunes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -648,18 +649,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/tab-jeunes.html">
+    <entry file="file://$PROJECT_DIR$/www/templates/activite-detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.423077">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="-27.461538">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/activite-detail.html">
+    <entry file="file://$PROJECT_DIR$/www/templates/tab-jeunes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76445395">
-          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.74625266">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
           <folding />
         </state>
       </provider>
