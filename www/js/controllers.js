@@ -61,9 +61,15 @@ angular.module('starter.controllers', [])
         $scope.data.addJeuneModal = function () {
             $scope.data.nomNewJeune = "";
 
+            $scope.data.selectFct = "Jeune";
+
             $ionicPopup.show({
-                template: '<input type="text" ng-model="data.nomNewJeune">',
-                title: 'Nouveau jeune',
+                template: '<input type="text" ng-model="data.nomNewJeune" placeholder="Nom"><br>' +
+                '<label class="item item-input item-select">'+
+                '<div class="input-label">Fonction</div><select ng-model="data.selectFct">'+
+                '<option selected>Jeune</option>'+
+                '<option>Chef</option> </select> </label>',
+                title: 'Nouveau membre',
                 scope: $scope,
                 buttons: [
                     {text: 'Annuler'},
@@ -75,7 +81,7 @@ angular.module('starter.controllers', [])
                                 //don't allow the user to close unless he enters anumber
                                 e.preventDefault();
                             } else {
-                                Jeunes.newJeune($scope.data.nomNewJeune);
+                                Jeunes.newJeune($scope.data.nomNewJeune, $scope.data.selectFct);
                                 $scope.data.jeunes = Jeunes.all();
                             }
                         }
@@ -84,8 +90,8 @@ angular.module('starter.controllers', [])
             });
         };
 
-        $scope.data.remove = function(jeuneId) {
-            Jeunes.remove(jeuneId);
+        $scope.data.remove = function(jeune) {
+            Jeunes.remove($scope.data.jeunes.indexOf(jeune));
             $scope.data.jeunes = Jeunes.all();
         };
 

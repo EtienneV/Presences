@@ -1,20 +1,45 @@
 <ion-view view-title="{{data.activite.name}}">
     <ion-content class="padding">
 
-        <ul class="list">
-            <li class="item item-checkbox" ng-repeat="jeune in data.jeunes">
+      <div class="card">
+        <div class="item item-divider">
+          Chefs
+        </div>
+        <div class="item item-text-wrap">
+          <ul class="list">
+            <li class="item item-checkbox" ng-repeat="jeune in data.jeunes | filter : {fonction: 'Chef'} | orderBy : 'name'">
+              <label class="checkbox">
+                <input type="checkbox" ng-model="data.jeunes[data.jeunes.indexOf(jeune)].checked" ng-checked="data.jeunes[data.jeunes.indexOf(jeune)].checked" ng-change="data.changepresence(jeune.id)">
+              </label>
+              {{jeune.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="item item-divider">
+          Jeunes
+        </div>
+        <div class="item item-text-wrap">
+          <ul class="list">
+            <li class="item item-checkbox" ng-repeat="jeune in data.jeunes | filter : {fonction: 'Jeune'} | orderBy : 'name'">
+              <label class="checkbox">
+                <input type="checkbox" ng-model="data.jeunes[data.jeunes.indexOf(jeune)].checked" ng-checked="data.jeunes[data.jeunes.indexOf(jeune)].checked" ng-change="data.changepresence(jeune.id)">
+              </label>
+              {{jeune.name}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+        <!--<ul class="list">
+            <li class="item item-checkbox" ng-repeat="jeune in data.jeunes | orderBy : 'name'">
                 <label class="checkbox">
-                    <input type="checkbox" ng-model="data.jeunes[$index].checked" ng-checked="data.jeunes[$index].checked" ng-change="data.changepresence(jeune.id)">
+                    <input type="checkbox" ng-model="data.jeunes[data.jeunes.indexOf(jeune)].checked" ng-checked="data.jeunes[data.jeunes.indexOf(jeune)].checked" ng-change="data.changepresence(jeune.id)">
                 </label>
                 {{jeune.name}}
             </li>
-        </ul>
-
-        <div class="item">data.activite
-            <pre ng-bind="data.activite | json"></pre>
-        </div>
-      <div class="item">data.jeunes : length : {{data.jeunes.length}}
-        <pre ng-bind="data.jeunes | json"></pre>
-      </div>
+        </ul>-->
     </ion-content>
 </ion-view>

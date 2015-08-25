@@ -131,14 +131,15 @@ angular.module('starter.services', [])
 
           $localstorage.setObject("jeunes", jeunes);
         },
-        newJeune: function (nom) {
+        newJeune: function (nom, fonction) {
           var jeunes = $localstorage.getObject("jeunes");
 
           var indexJeune = $localstorage.getObject("indexJeunes") + 1;
 
           jeunes.push({
             id: indexJeune,
-            name: nom
+            name: nom,
+            fonction: fonction
           });
 
           $localstorage.setObject("jeunes", jeunes); // on restocke l'objet
