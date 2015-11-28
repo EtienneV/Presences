@@ -1,4 +1,5 @@
 {
   "name": "Presences",
-  "app_id": "b2aadaab"
+  "app_id": "b2aadaab",
+  "gulpStartupTasks": ["sass", "watch"]
 }
